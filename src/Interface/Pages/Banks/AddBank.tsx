@@ -1,7 +1,7 @@
 import { BankProvider } from "@/Core/Providers/BankProvider";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import BankCreate from "./Components/BankCreate";
+import BankAccountCreation from "./Components/BankAccountCreation";
 import { Container } from "react-bootstrap";
 
 const AddBank = () => {
@@ -9,7 +9,7 @@ const AddBank = () => {
     <BankProvider>
       <Container>
         <p className="mt-5">Crie uma conta no banco selecionado</p>
-        <BankCreate />
+        <BankAccountCreation />
       </Container>
     </BankProvider>
   );

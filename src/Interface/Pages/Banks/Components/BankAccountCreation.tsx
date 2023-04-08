@@ -9,7 +9,7 @@ import {
   FormControl,
 } from "../Style/BankStyle";
 
-const BankCreate = () => {
+const BankAccountCreation = () => {
   const { code } = useParams();
   const { bank, fetchBank } = useBank();
   const [agency, setAgency] = useState("");
@@ -24,6 +24,7 @@ const BankCreate = () => {
       const data = {
         agency,
         account,
+        code: bank?.code
       };
       localStorage.setItem("bankAccount", JSON.stringify(data));
       alert("Conta bancária criada com sucesso!");
@@ -69,4 +70,4 @@ const BankCreate = () => {
   );
 };
 
-export default BankCreate;
+export default BankAccountCreation;
