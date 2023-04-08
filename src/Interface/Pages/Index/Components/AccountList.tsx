@@ -1,7 +1,7 @@
 import { AccountBank } from "@/Core/@types/BankType";
 import React from "react";
 
-const Body = () => {
+const AccountList = () => {
   // Obtém o array de contas bancárias cadastradas do localStorage
   const bankAccounts = JSON.parse(localStorage.getItem("bankAccounts") ?? "[]");
 
@@ -31,4 +31,4 @@ const Body = () => {
   );
 };
 
-export default Body;
+export default AccountList;

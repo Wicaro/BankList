@@ -1,12 +1,12 @@
 import { Container } from "react-bootstrap";
 import Header from "./Components/Header";
-import Body from "./Components/Body";
+import AccountList from "./Components/AccountList";
 
 const Index = () => {
   return (
     <Container>
        <Header/>
-       <Body/>
+       <AccountList/>
     </Container>
   );
 };
