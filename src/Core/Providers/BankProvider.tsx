@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Bank, BankContextType } from "../@types/BankType";
 import { BankListByCode, BanksListService } from "../Services/BankService";
+import { useNavigate } from "react-router-dom";
 
 // Cria um contexto para o componente filho que irá utilizar as informações bancárias
 export const BankContext = React.createContext<BankContextType | null>(null);
 
 // Componente pai que prove as informações bancárias para os filhos através do contexto
 export const BankProvider = ({ children }: { children: React.ReactNode }) => {
+  const navigate = useNavigate();
   // Armazena as informações de bancos
   const [banks, setBanks] = useState<Bank[]>([]);
   // Armazena as informações do banco selecionado
@@ -21,6 +23,9 @@ export const BankProvider = ({ children }: { children: React.ReactNode }) => {
   // Função para buscar as informações de um banco pelo código
   const fetchBank = async (code:string) => {
     const response = await BankListByCode(code)
+    if(response == undefined){
+      navigate("/");
+    }
     setBank(response)
   }
 

@@ -1,7 +1,7 @@
 import useBank from "@/Core/Hooks/BankHook";
 import { useEffect, useState } from "react";
 import { Col, Card } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { CardBody, ButtonCreate, BorderDiv, FormControl } from "../Style/BankStyle";
 import { AccountBank } from "@/Core/@types/BankType";
 
@@ -11,7 +11,7 @@ const BankCreate = () => {
 
     // Hook 'useBank' para obter dados do banco
     const { bank, fetchBank } = useBank();
-
+    
     // Estados locais para armazenar os dados da conta bancária
     const [agency, setAgency] = useState("");
     const [account, setAccount] = useState("");
