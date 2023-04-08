@@ -8,5 +8,5 @@ export type Bank = {
 export type BankContextType = {
   banks: Bank[];
   fetchBank: (code:string) => void
-  bank: Bank[]
+  bank: Bank | null; // alteração aqui
 };

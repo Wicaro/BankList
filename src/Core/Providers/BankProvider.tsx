@@ -6,7 +6,7 @@ export const BankContext = React.createContext<BankContextType | null>(null);
 
 export const BankProvider = ({ children }: { children: React.ReactNode }) => {
   const [banks, setBanks] = useState<Bank[]>([]);
-  const [bank, setBank] = useState<Bank[]>([]);
+  const [bank, setBank] = useState<Bank | null>(null); // Alteração aqui
 
   const fetchBankLister = async () => {
     const response = await BanksListService();
@@ -15,7 +15,7 @@ export const BankProvider = ({ children }: { children: React.ReactNode }) => {
 
   const fetchBank = async (code:string) => {
     const response = await BankListByCode(code)
-    console.log(response)
+    setBank(response)
   }
 
   useEffect(() => {

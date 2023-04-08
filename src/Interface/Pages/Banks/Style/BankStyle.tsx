@@ -37,3 +37,9 @@ export const FormControl = styled.input`
     background-color:#eaeaea;
     border:0px;
 `;
+
+export const BorderDiv = styled.div`
+    border: 1px solid grey;
+    padding: 15px;
+    border-radius: 10px;
+`
