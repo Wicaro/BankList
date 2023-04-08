@@ -5,6 +5,13 @@ export type Bank = {
   fullName: string;
 };
 
+export type AccountBank = {
+  code: number;
+  agency:string;
+  account:string;
+}
+
+
 export type BankContextType = {
   banks: Bank[];
   fetchBank: (code:string) => void
