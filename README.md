@@ -5,6 +5,7 @@ Cadastro de contas bancárias pessoais.
 
 ## Links uteis
 
+ - [React](https://react.dev/)
  - [Vite](https://vitejs.dev/)
  - [Axios](https://axios-http.com/)
  - [Brasil API](https://brasilapi.com.br/)
