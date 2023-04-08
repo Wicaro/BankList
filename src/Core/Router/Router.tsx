@@ -14,5 +14,9 @@ export const routes = createBrowserRouter([
   {
     path: "/banks",
     element: <Banks />,
+  },
+  {
+    path: "/bank/add/:code",
+    element: <Banks />,
   }
 ]);
