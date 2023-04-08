@@ -9,6 +9,7 @@ import {
 } from "../Style/BankStyle";
 import { Bank } from "@/Core/@types/BankType";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ItemsPerPage = 12;
 
@@ -59,11 +60,13 @@ const BankList = () => {
               <Card style={{ border: "0px" }}>
                 <CardBody>
                   <p>
-                    Banco: {item.fullName} - Code {item.code}
+                    Banco: {item.fullName} - Code {item.code ? item.code : (<p className="text-danger">Indisponível</p>)}
                   </p>
                   <p>ISPB: {item.ispb}</p>
                   <p>Nome: {item.name}</p>
-                  <ButtonCreate>Criar minha conta</ButtonCreate>
+                 {item.code == null ? (<Button disabled>Banco indisponível</Button>) : ( <Link to={`/bank/add/${item.code}`}>
+                    <ButtonCreate>Criar minha conta</ButtonCreate>
+                  </Link>)}
                 </CardBody>
               </Card>
             </Col>
