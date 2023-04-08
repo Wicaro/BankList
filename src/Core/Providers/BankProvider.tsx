@@ -13,7 +13,7 @@ export const BankProvider = ({ children }: { children: React.ReactNode }) => {
     setBanks(response);
   };
 
-  const fetchBank = async (code:number) => {
+  const fetchBank = async (code:string) => {
     const response = await BankListByCode(code)
     console.log(response)
   }

@@ -7,6 +7,6 @@ export type Bank = {
 
 export type BankContextType = {
   banks: Bank[];
-  fetchBank: (code:number) => void
+  fetchBank: (code:string) => void
   bank: Bank[]
 };

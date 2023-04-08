@@ -21,10 +21,10 @@ const BankList = () => {
     
     const StartPage = (currentPage - 1) * ItemsPerPage;
     const EndPage = StartPage + ItemsPerPage;
-    let BanksList = banks.slice(StartPage, EndPage);
+    let BanksList = banks?.slice(StartPage, EndPage);
     
     if (searchCode !== "") {
-      BanksList = BanksList.filter((bank) => bank.code === parseInt(searchCode));
+      BanksList = BanksList?.filter((bank) => bank.code === parseInt(searchCode));
     }
     
     const handleClick = (pageNumber: number) => {
