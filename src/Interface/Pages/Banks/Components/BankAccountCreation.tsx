@@ -9,26 +9,42 @@ import {
   FormControl,
 } from "../Style/BankStyle";
 
-const BankAccountCreation = () => {
+const BankCreate = () => {
+  // Obtém o parâmetro 'code' da URL
   const { code } = useParams();
+
+  // Hook 'useBank' para obter dados do banco
   const { bank, fetchBank } = useBank();
+
+  // Estados locais para armazenar os dados da conta bancária
   const [agency, setAgency] = useState("");
   const [account, setAccount] = useState("");
 
+  // Buscar informações do banco na API quando o componente é montado
   useEffect(() => {
     fetchBank(`${code}`);
   }, []);
 
-  const handleCreateAccount = () => {
+   // Cria uma nova conta bancária e armazena os dados no localStorage
+   const handleCreateAccount = () => {
+    // Verifica se a agência e a conta foram preenchidas
     if (agency && account) {
+      // Cria um objeto com os dados da conta bancária
       const data = {
         agency,
         account,
         code: bank?.code
       };
-      localStorage.setItem("bankAccount", JSON.stringify(data));
+      // Verifica se já existem contas bancárias armazenadas no localStorage
+      const storedBankAccounts = JSON.parse(localStorage.getItem("bankAccounts") ?? "[]");
+      // Adiciona a nova conta bancária ao array
+      storedBankAccounts.push(data);
+      // Armazena o array atualizado de contas bancárias no localStorage
+      localStorage.setItem("bankAccounts", JSON.stringify(storedBankAccounts));
+      // Exibe uma mensagem de sucesso para o usuário
       alert("Conta bancária criada com sucesso!");
     } else {
+      // Exibe uma mensagem de erro caso a agência ou a conta não tenham sido preenchidas
       alert("Por favor, preencha todos os campos!");
     }
   };
@@ -70,4 +86,4 @@ const BankAccountCreation = () => {
   );
 };
 
-export default BankAccountCreation;
+export default BankCreate;
