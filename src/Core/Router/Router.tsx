@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, createBrowserRouter, Route } from "react-router-dom";
 import Index from "@/Interface/Pages/Index/Index";
 import Banks from "@/Interface/Pages/Banks/Banks";
+import AddBank from "@/Interface/Pages/Banks/AddBank";
 
 // createBrowserRouter é uma função que retorna um objeto do tipo Router
 // que contém as rotas da aplicação.
@@ -17,6 +18,6 @@ export const routes = createBrowserRouter([
   },
   {
     path: "/bank/add/:code",
-    element: <Banks />,
+    element: <AddBank />,
   }
 ]);
